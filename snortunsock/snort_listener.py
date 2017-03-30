@@ -2,7 +2,7 @@ import os
 import socket
 import logging
 
-import alert
+from . import alert
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 BUFSIZE = alert.AlertPkt._ALERTPKT_SIZE
