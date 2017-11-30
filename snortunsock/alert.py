@@ -36,11 +36,11 @@ class SfTimeval32(object):
 
 
 class Event(object):
-    _PACK_STR = '!IIIIIII'
+    _PACK_STR = '<IxIIIIII'
     _SIZE = 36
 
     def __init__(self, sig_generator, sig_id, sig_rev, classification,
-                 priority, event_id, event_reference, ref_time):
+                 priority, event_id, event_reference ''', ref_time'''):
         self.sig_generator = sig_generator
         self.sig_id = sig_id
         self.sig_rev = sig_rev
@@ -48,7 +48,7 @@ class Event(object):
         self.priority = priority
         self.event_id = event_id
         self.event_reference = event_reference
-        self.ref_time = ref_time
+#        self.ref_time = ref_time
 
     @classmethod
     def parser(cls, buf, offset):
@@ -57,10 +57,10 @@ class Event(object):
              cls._PACK_STR, buf, offset)
         offset += calcsize(cls._PACK_STR)
 
-        ref_time = SfTimeval32.parser(buf, offset)
+#        ref_time = SfTimeval32.parser(buf, offset)
 
         msg = cls(sig_generator, sig_id, sig_rev, classification,
-                  priority, event_id, event_reference, ref_time)
+                  priority, event_id, event_reference ''', ref_time''')
 
         return msg
 
