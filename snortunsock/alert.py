@@ -16,7 +16,6 @@
 import struct
 from struct import calcsize
 
-
 class SfTimeval32(object):
     _PACK_STR = '!II'
     _SIZE = 8
